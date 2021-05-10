@@ -11,11 +11,16 @@
                     <a href="{{this.url}}" target="_blank">{{ this.title }}</a>
                     <h3>{{ this.author }}</h3>
                     <h6>{{ this.summary }}</h6>
+                    <form action="/book/{{this._id}}/edit">
+                      <button class="btn btn-warning">Edit</button>
+                    </form>
+
                     <p>
                       <form action="/book/{{this._id}}">
                         <button type="submit" class="btn btn-danger">Delete</button>
                       </form>
                     </p>
+
                     <!-- ?_method=DELETE -->
                     <!-- <button href="/book/delete/{{this._id}}" type="button" class="btn btn-danger">Remove</button> -->
                 </li>

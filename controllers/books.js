@@ -35,9 +35,10 @@ module.exports = (app) => {
       })
     });
 
+    // LOOK UP THE POST
     app.get('/books/:id', function(req, res) {
       const currentUser = req.cookies.nToken
-      // LOOK UP THE POST
+
       Book.findById(req.params.id).lean()
         .then(book => {
           res.render("books-show", { book });
@@ -46,17 +47,39 @@ module.exports = (app) => {
           console.log(err.message);
         });
     });
-    // book/delete/
+
+    // DELETE BOOK
     app.get('/book/:id', (req, res) => {
       console.log("DELETE BOOK")
-      console.log(req.params.id)
 
       Book.findByIdAndRemove(req.params.id).then((book) => {
-        res.redirect('/');
-      }).catch((err) => {
-        console.log(err.message);
-      })
+          res.redirect('/');
+        }).catch((err) => {
+          console.log(err.message);
+        })
     });
+
+    // EDIT
+    app.get('/book/:id/edit', (req, res) => {
+      console.log("EDIT BOOK")
+      Book.findById(req.params.id, function(err, book) {
+        console.log("Edit Book->", book)
+        res.render('books-edit', {book: book});
+      }).lean()
+    })
+
+    // UPDATE
+    app.post('/book/:id/update', (req, res) => {
+      console.log("UPDATE BOOK", req.params.id)
+      Book.findByIdAndUpdate(req.params.id, req.body)
+        .then(book => {
+          // `/book/${book._id}`
+          res.redirect('/')
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    })
 }
 
 // module.exports = (app) => {

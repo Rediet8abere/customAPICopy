@@ -1,0 +1,36 @@
+<!-- views/reviews-edit.handlebars -->
+
+<form method="POST" action="/book/{{book._id}}/update">
+  <fieldset>
+    <legend>Edit Book</legend>
+    <!-- TITLE -->
+    <p>
+      <label for="book-title">Title</label><br>
+      <input id="title" type="text" name="title" value="{{book.title}}"/>
+    </p>
+
+    <!-- Author -->
+    <p>
+      <label for="book-author">Author</label><br>
+      <input id="author" type="text" name="author" value="{{book.author}}"/>
+    </p>
+
+    <!-- Book url -->
+    <p>
+      <label for="book-url">URL</label><br>
+      <textarea id="url" name="url" />{{book.url}}</textarea>
+    </p>
+
+    <!-- Book summary -->
+    <p>
+      <label for="book-summary">Book summary</label><br>
+      <input id="summary" type="text" name="summary" value="{{book.summary}}" />
+    </p>
+
+
+  </fieldset>
+  <!-- BUTTON -->
+  <p>
+    <button class="btn btn-success" type="submit">Save Review</button>
+  </p>
+</form>
