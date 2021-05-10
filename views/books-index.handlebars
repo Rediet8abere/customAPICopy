@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <ul>
+            {{#each books}}
+                <li class="list-group-item">
+                    <!-- <div class="lead"><a href="/posts/{{this._id}}">{{this.title}}</a></div>
+                    <a href="{{this.url}}" target="_blank">{{this.url}}</a>
+                    <div class="text-right">
+                      <a href="/n/{{this.subreddit}}">{{this.subreddit}}</a>
+                    </div> -->
+                    <a href="{{this.url}}" target="_blank">{{ this.title }}</a>
+                    <h3>{{ this.author }}</h3>
+                    <h6>{{ this.summary }}</h6>
+                    <p>
+                      <form action="/book/{{this._id}}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </p>
+                    <!-- ?_method=DELETE -->
+                    <!-- <button href="/book/delete/{{this._id}}" type="button" class="btn btn-danger">Remove</button> -->
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
