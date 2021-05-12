@@ -1,10 +1,11 @@
 {
-  "name": "reddit",
+  "name": "CustomApi",
   "version": "1.0.0",
   "description": "create post",
   "main": "server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha", 
+    "start": "node server.js"
   },
   "author": "Rediet G.",
   "license": "ISC",

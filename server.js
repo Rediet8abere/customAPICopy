@@ -43,9 +43,7 @@ const db = require('./data/custom-db');
 const mongoose = require("mongoose");
 
 
-// Import Post Controller
 require('./controllers/books.js')(app);
-// require('./controllers/comments.js')(app);
 require('./controllers/auth.js')(app);
 
 app.listen(port, () => {
