@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const app = express()
 app.use(cookieParser());
 const exphbs  = require('express-handlebars');
-const port = 4000
+const port = process.env.PORT || 4000
 const key = require('dotenv').config();
 
 
